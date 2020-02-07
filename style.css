@@ -24,88 +24,53 @@ main{
 }
 
 /** Responsive Navbar **/
-#header{
-    position: fixed;
-    top: 0;
-    background-color: #4561ee;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 70px;
-    z-index: 1;
-    opacity: 0.9;
+
+header{
+  position: fixed;
+  top:0;
+  padding: 0 40px;
+  width: 100%;
+  height:80px;
+  box-sizing: border-box;
+  background-color: #4561ee;
+  opacity:0.95;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.5s;
 }
 
-@media (max-width: 780px) {
-  header {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    position: relative !important;
-    height: 22rem !important;
-  }
-
-  #nav-bar > ul{
-    display: block;
-    margin: auto;
-  }
-
-  .nav-link{
-    display: block;
-    margin: auto;
-    text-align: center;
-  }
-  
-  #navbar{
-    padding: 0px 0px;
-    display: block;
-    margin:auto;
-    width: 100%;
-    font-size: 0.75rem;
-    font-weight:500;
-  }
-
-  #navbar > a:hover{
-    color:#fff !important;
-  }
-
-  .logo{
-    padding-top: 5px;
-    display: block;
-    margin:auto;
-  }
-
+ul{
+  position: relative;
+  margin:0;
+  padding: 0;
+  display: flex;
+  float: right;
+  transition: 0.5s;
 }
 
-#navbar{
-    margin:20px ;
-    padding: 5px 10px;
+ul>li#navbar{
+  list-style: none;
 }
 
-#nav-bar > ul{
-    display:flex;
-    flex-wrap:wrap;
-    list-style: none;
+ul>li#navbar > a {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  margin:20px 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
 }
 
-#navbar > a{
-    display: flex;
-    flex-wrap: nowrap;
-    color: #000;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight:600;
-    position: relative;
-    text-transform: uppercase;
-}
-
-@media(min-width:780px){
+@media(min-width:761px){
 
   body{
     margin-top: 75px;
+  }
+  
+  #navbar a:hover{
+      color:#fff;
   }
 
   #navbar a::before{
@@ -121,9 +86,55 @@ main{
   
   #navbar:hover a:before{
     transform: translateX(100%);
-    width: 50%;
+    width: 40%;
   }  
 
+}
+
+.toggle{
+  display: block;
+  position: absolute;
+  background-color: #798ceb;
+  right:20px;
+  top:25%;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+@media(max-width:760px){
+  header{
+      padding: 0 0;
+  }
+  header>ul{
+      width: 100%;
+      top: -4px;
+      display: none;
+  }
+
+  ul > li#navbar > a:hover{
+      background-color: #e91e63;
+      color:#fff;
+  }
+  
+  header>ul.active{
+      display: block;
+  }
+
+  header>ul>li#navbar>a{
+      display:block;
+      text-align: center;
+      margin: 0;
+      background: rgba(41, 37, 37, 0.95);
+      z-index: 1;
+      color: #fff;
+  }
+
+  #home{
+    margin-top: 75px;
+  }
 }
 
 .logo{
